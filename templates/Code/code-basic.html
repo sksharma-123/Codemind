@@ -134,6 +134,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                                <a class="dropdown-item" href="/profile/{{user.username}}/">Your Profile</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
                             </div>
