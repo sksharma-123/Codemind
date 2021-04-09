@@ -7,7 +7,8 @@ def index(request):
     else:
         return render(request, 'Index page/index.html')
 
-
+def about(request):
+    return render(request, 'Index page/about.html')
 
 
 
