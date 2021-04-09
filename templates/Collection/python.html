@@ -1,0 +1,194 @@
+{% extends 'Collection/collection-basic.html' %}
+
+{% block title %}Python Code Collection{% endblock %}
+
+
+{% block style %}
+<style>
+    .code-container {
+        border: 1px solid skyblue;
+        border-left: 5px solid blue;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 495px;
+    }
+
+    .code-pane {
+        border: 1px solid skyblue;
+        border-left: 5px solid blue;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 430px;
+        margin-top: 7px;
+        overflow-y: auto;
+    }
+
+    .nav-tabs .nav-link {
+        border-width: 0 0 5px;
+        border-radius: 25px;
+    }
+
+    .code-text {
+        display: inline;
+    }
+
+    .code-head {
+        display: inline;
+    }
+
+    .code-content {
+        background-color: whitesmoke;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: 3px solid rgb(125, 235, 125);
+    }
+
+    .section-divider {
+        height: 5px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+
+    @media only screen and (max-width: 1024px) {
+        .code-container {
+            border-top: 5px solid blue;
+            border-top-right-radius: 5px;
+            border-left: none;
+        }
+
+        .code-pane {
+            border-top: 5px solid blue;
+            border-top-right-radius: 5px;
+            border-left: none;
+        }
+
+        .code-head {
+            display: block;
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+{% load static %}
+
+<div class="container text-center my-5">
+    <img src="{% static 'search.png' %}" class="img-fluid mb-2" style="height: 80px;" alt="">
+    <h1 class="display-5 text-center code-head ml-3"><b>Python Codeweb</b></h1>
+</div>
+
+<div class="container my-3 code-container">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item ml-auto">
+            <a class="nav-link active" data-toggle="tab" href="#basic">Basic</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#medial">Medial</a>
+        </li>
+        <li class="nav-item mr-auto">
+            <a class="nav-link" data-toggle="tab" href="#advanced">Advanced</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content code-pane">
+        <div id="basic" class="container tab-pane active">
+            {% for code in basic %}
+            <div class="container py-2 my-2 code-content">
+                <h6 class="text-primary ml-2 mr-3 code-text"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="green" class="bi bi-award-fill" viewBox="0 0 16 16">
+                        <path
+                            d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
+                        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                    </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                <div class="row mt-3 mx-2">
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Submitted by : </h6>
+                        <a href="{% if user.is_authenticated %} /profile/{{user.username}}/ {% else %} {% url 'login_request' %} {% endif %}">{{code.username}}</a>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">On : </h6>
+                        <p class="text-primary code-text" href="">{{code.date}}</p>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Language : </h6>
+                        <a href="/python-collec/">{{code.language}}</a>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Level : </h6>
+                        <p class="text-primary code-text" href="">{{code.level}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="medial" class="container tab-pane fade">
+            {% for code in intermediate %}
+            <div class="container py-2 my-2 code-content">
+                <h6 class="text-primary ml-2 mr-3 code-text"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="green" class="bi bi-award-fill" viewBox="0 0 16 16">
+                        <path
+                            d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
+                        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                    </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                <div class="row mt-3 mx-2">
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Submitted by : </h6>
+                        <a href="{% if user.is_authenticated %} /profile/{{user.username}}/ {% else %} {% url 'login_request' %} {% endif %}">{{code.username}}</a>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">On : </h6>
+                        <p class="text-primary code-text" href="">{{code.date}}</p>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Language : </h6>
+                        <a href="/python-collec/">{{code.language}}</a>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Level : </h6>
+                        <p class="text-primary code-text" href="">{{code.level}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="advanced" class="container tab-pane fade">
+            {% for code in advanced %}
+            <div class="container py-2 my-2 code-content">
+                <h6 class="text-primary ml-2 mr-3 code-text"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="green" class="bi bi-award-fill" viewBox="0 0 16 16">
+                        <path
+                            d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
+                        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                    </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                <div class="row mt-3 mx-2">
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Submitted by : </h6>
+                        <a href="{% if user.is_authenticated %} /profile/{{user.username}}/ {% else %} {% url 'login_request' %} {% endif %}">{{code.username}}</a>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">On : </h6>
+                        <p class="text-primary code-text" href="">{{code.date}}</p>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Language : </h6>
+                        <a href="/python-collec/">{{code.language}}</a>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <h6 class="text-primary code-text">Level : </h6>
+                        <p class="text-primary code-text" href="">{{code.level}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
