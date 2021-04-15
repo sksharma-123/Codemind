@@ -91,6 +91,13 @@
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             border-bottom: 3px solid rgb(125, 235, 125);
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .code-content:hover {
+            height: auto;
+            overflow: initial;
         }
 
         .section-divider {
@@ -208,7 +215,7 @@
                                 {{ user.username }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                                <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
                                 <a class="dropdown-item" href="/profile/{{user.username}}/">Your Profile</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
@@ -291,7 +298,7 @@
                             <path
                                 d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
-                        </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                        </svg></h6><a href="/c-collec/{{code.id}}/">{{code.problem}}</a>
                     <div class="row mt-3 mx-2">
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Submitted by : </h6>
@@ -304,7 +311,7 @@
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Language : </h6>
-                            <a href="/python-collec/">{{code.language}}</a>
+                            <a href="/c-collec/">{{code.language}}</a>
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Level : </h6>
@@ -322,7 +329,7 @@
                             <path
                                 d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
-                        </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                        </svg></h6><a href="/c-collec/{{code.id}}/">{{code.problem}}</a>
                     <div class="row mt-3 mx-2">
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Submitted by : </h6>
@@ -335,7 +342,7 @@
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Language : </h6>
-                            <a href="/python-collec/">{{code.language}}</a>
+                            <a href="/c-collec/">{{code.language}}</a>
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Level : </h6>
@@ -353,7 +360,7 @@
                             <path
                                 d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
-                        </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                        </svg></h6><a href="/c-collec/{{code.id}}/">{{code.problem}}</a>
                     <div class="row mt-3 mx-2">
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Submitted by : </h6>
@@ -366,7 +373,7 @@
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Language : </h6>
-                            <a href="/python-collec/">{{code.language}}</a>
+                            <a href="/c-collec/">{{code.language}}</a>
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Level : </h6>
@@ -404,7 +411,7 @@
                             <path
                                 d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
-                        </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                        </svg></h6><a href="/java-collec/{{code.id}}/">{{code.problem}}</a>
                     <div class="row mt-3 mx-2">
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Submitted by : </h6>
@@ -417,7 +424,7 @@
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Language : </h6>
-                            <a href="/python-collec/">{{code.language}}</a>
+                            <a href="/java-collec/">{{code.language}}</a>
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Level : </h6>
@@ -435,7 +442,7 @@
                             <path
                                 d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
-                        </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                        </svg></h6><a href="/java-collec/{{code.id}}/">{{code.problem}}</a>
                     <div class="row mt-3 mx-2">
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Submitted by : </h6>
@@ -448,7 +455,7 @@
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Language : </h6>
-                            <a href="/python-collec/">{{code.language}}</a>
+                            <a href="/java-collec/">{{code.language}}</a>
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Level : </h6>
@@ -466,7 +473,7 @@
                             <path
                                 d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
-                        </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+                        </svg></h6><a href="/java-collec/{{code.id}}/">{{code.problem}}</a>
                     <div class="row mt-3 mx-2">
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Submitted by : </h6>
@@ -479,7 +486,7 @@
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Language : </h6>
-                            <a href="/python-collec/">{{code.language}}</a>
+                            <a href="/java-collec/">{{code.language}}</a>
                         </div>
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Level : </h6>
@@ -518,6 +525,7 @@
                                 d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                             <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
                         </svg></h6><a href="/python-collec/{{code.id}}/">{{code.problem}}</a>
+
                     <div class="row mt-3 mx-2">
                         <div class="col-sm-3 text-center">
                             <h6 class="text-primary code-text">Submitted by : </h6>
@@ -606,7 +614,7 @@
     </div>
 
 
-    
+
 
 
     <div class="container my-5">
@@ -662,6 +670,12 @@
     <script src="https://sksharma-123.github.io/cwi/cwi.min.js"></script>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+
+    <script>
+        function showModal() {
+            document.getElementById('staticBackdrop').show()
+        }
+    </script>
 
     {% block js %}{% endblock %}
 </body>

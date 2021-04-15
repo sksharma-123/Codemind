@@ -205,7 +205,15 @@
          frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
    </div>
 
-
+   {% if user.is_authenticated and user.username == query.username %}
+   <div class="container text-center mt-3">
+      <form action="/python-collec/" method="POST">
+         {% csrf_token %}
+         <input type="text" value="{{query.id}}" style="display: none;" name="code_id" id="code_id">
+         <button type="submit" class="btn btn-danger w-100" data-dismiss="modal">Delete</button>
+      </form>
+   </div>
+   {% endif %}
 
 
 

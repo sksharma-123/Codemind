@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- CWI CSS -->
     <link rel="stylesheet" href="https://sksharma-123.github.io/cwi/cwi.min.css">
     <!-- Font Awesome -->
@@ -19,8 +20,6 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 
-    {% block style %}
-    {% endblock %}
 
     <style>
         .ide-img {
@@ -33,6 +32,14 @@
             width: 32px !important;
         }
 
+
+        .nav-tabs .nav-link {
+            border-width: 0 0 5px;
+            border-radius: 25px;
+        }
+
+
+
         @media only screen and (min-width:768px) {
             .profile {
                 margin-right: 100px;
@@ -44,10 +51,10 @@
         }
     </style>
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{{user.first_name}}'s Profile</title>
 </head>
 
-<body>
+<body style="background-color: #f5f5f5;">
 
     {% load static %}
 
@@ -78,14 +85,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
-                    {% if not user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'signup' %}">Register</a>
-                    </li>
-                    {% endif %}
                     <!-- Navbar dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -99,7 +98,6 @@
                             <li><a class="dropdown-item" href="/python-ide/">Python</a></li>
                         </ul>
                     </li>
-                    {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                             data-mdb-toggle="dropdown" aria-expanded="false">
@@ -112,7 +110,6 @@
                             <li><a class="dropdown-item" href="/python-sub/">Python</a></li>
                         </ul>
                     </li>
-                    {% endif %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                             data-mdb-toggle="dropdown" aria-expanded="false">
@@ -133,7 +130,7 @@
                                 {{ user.username }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
+                                <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
                                 <a class="dropdown-item" href="/profile/{{user.username}}/">Your Profile</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
@@ -151,11 +148,51 @@
     <!-- Navbar -->
 
 
-    <h5 class="display-6 text-center mt-4 mb-3"><img src="{% static 'code2gather.png' %}" class="img-fluid ide-img mr-3"
-            alt=""><b>{% block ide %}{% endblock %} IDE</b></h5>
+    <div class="container mt-5">
+        <!-- <h1 class="text-center display-5 mb-5">Hello! {{user.first_name}}</h1>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <a href="#" class=""><img src="{% static 'person.jpg' %}" class="img-fluid contribution" alt=""></a>
+                <a href="" class="contrib-link">
+                    <h6 class="display6 text-center mt-3 text-primary">{{username}}</h6>
+                </a>
+            </div>
+        </div> -->
 
-    {% block body %}
-    {% endblock %}
+
+
+        <div class="w3-sidebar w3-bar-block w3-light-grey rounded" style="width:20%; height: fit-content;">
+            <div class="w3-container py-3">
+                <a href="#" class=""><img src="{% static 'person.jpg' %}" class="img-fluid contribution rounded-circle" alt=""></a>
+            </div>
+
+            <div class="container my-3 text-center">
+                <h3 class="display6"> Hello ! {{user.first_name}}</h3>
+            </div>
+
+        </div>
+
+        <div style="margin-left:30%">
+            <div class="w3-container bg-white py-3 px-0 rounded">
+                <h2 class="mx-4">User Profile</h2>
+                <hr class="">
+                <h6 class="mx-4">Name <span class="ml-5">{{user.first_name}} {{user.last_name}}</span></h6>
+                <hr>
+                <h6 class="mx-4">Email <span class="ml-5">{{user.email}}</span></h6>
+                <hr>
+                <h6 class="mx-4">Date Joined <span class="ml-5">{{user.date_joined}}</span></h6>
+            </div>
+
+            <div class="row mt-4">
+                <a href="{% url 'password_change' %}"><button class="btn btn-primary" style="height: 35px;">Change Password</button></a>
+            </div>
+            <div class="row my-2">
+                <a href="/delete-account/"><button class="btn btn-danger" style="height: 35px;">Delete Account</button></a>
+            </div>
+        </div>
+
+    </div>
+
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -168,7 +205,6 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="https://sksharma-123.github.io/cwi/cwi.min.js"></script>
-    <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 
     {% block js %}{% endblock %}

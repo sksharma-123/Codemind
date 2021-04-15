@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import Submission
+from django.contrib.auth.models import User
 
 def index(request):
     if request.user.is_authenticated:
@@ -17,6 +18,8 @@ def about(request):
 
 
 def profile(request, user):
+    
+
     context = {}
 
     if request.user.is_authenticated:    
@@ -68,6 +71,26 @@ def profile(request, user):
 
 def login_request(request):
     return render(request, 'Profile/login_request.html')
+
+
+def settings(request):
+    return render(request, 'Profile/settings.html')
+
+def delete_account(request):
+    return render(request, 'Profile/delete_account.html')
+
+def account_deleted(request):
+    if request.method == 'POST':
+        username = request.user
+        # email = request.POST['email']
+        # password = request.POST['password']
+
+        query = User.objects.get(username=username)
+        query.delete()
+
+    return redirect('/')
+
+
 
 
 # ----------------------------- IDEs -------------------------------
@@ -124,6 +147,11 @@ def code_submitted(request):
 
 
 def python_collec(request):
+    if request.method == 'POST':
+        code_id = request.POST['code_id']
+        query = Submission.objects.get(id=code_id)
+        query.delete()
+
     basic = Submission.objects.filter(language='Python', level='Basic')
     intermediate = Submission.objects.filter(language='Python', level='Intermediate')
     advanced = Submission.objects.filter(language='Python', level='Advanced')
@@ -132,6 +160,11 @@ def python_collec(request):
 
 
 def java_collec(request):
+    if request.method == 'POST':
+        code_id = request.POST['code_id']
+        query = Submission.objects.get(id=code_id)
+        query.delete()
+        
     basic = Submission.objects.filter(language='Java', level='Basic')
     intermediate = Submission.objects.filter(language='Java', level='Intermediate')
     advanced = Submission.objects.filter(language='Java', level='Advanced')
